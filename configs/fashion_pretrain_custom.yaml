@@ -1,0 +1,23 @@
+
+# configs/fashion_pretrain_custom.yaml
+
+bert_config: '/a/bear.cs.fiu.edu./disk/bear-b/users/hsale014/Project1/Fashion/FashionSAP/fashion_annotation/bert_config.json'
+tokenizer_config: '/a/bear.cs.fiu.edu./disk/bear-b/users/hsale014/Project1/Fashion/FashionSAP/fashion_annotation'
+
+image_res: 256
+batch_size_train: 16      # KEEP AT 16 to prevent RAM crashes! (Accumulation makes it 128)
+batch_size_test: 256
+
+queue_size: 65536
+momentum: 0.995
+vision_width: 768
+embed_dim: 256
+temp: 0.07
+
+alpha: 0.4
+warm_up: True
+
+# --- YOUR CUSTOM FIXES ARE HERE ---
+# Peak LR is now exactly 1e-4. Epochs set to exactly 20.
+optimizer: {opt: adamW, lr: 0.0001, weight_decay: 0.02}
+schedular: {sched: cosine, lr: 0.0001, epochs: 30, min_lr: 1e-5, decay_rate: 1, warmup_lr: 1e-5, warmup_epochs: 5, cooldown_epochs: 0}
