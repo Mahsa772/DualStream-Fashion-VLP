@@ -50,42 +50,6 @@ By forcing S to specialise in category words and D to specialise in attributes, 
 
 ---
 
-## Repository Structure
-
-```
-DualStream-Fashion-VLP/
-│
-├── configs/
-│   ├── fashion_pretrain_custom.yaml   # pre-training (full dataset)
-│   ├── fashion_catereg.yaml           # category recognition config
-│   └── fashion_retrieval.yaml         # retrieval config
-│
-├── dataset/                    # Dataset loaders and transforms
-├── fashion_annotation/         # Tokenizer, category map, annotations
-│
-├── models/
-│   ├── model_fashion_pretrain_sym.py  # Dual-stream pre-training model
-│   ├── model_fashion_retrieval_sym.py # SD-fusion retrieval model
-│   └── model_fashion_catereg_sym.py   # [S;D] classification model
-│
-├── optim/                      # Optimizer implementations
-├── scheduler/                  # LR scheduler implementations
-│
-├── fashion_pretrain_sym.py     # pre-training entry point
-├── fashion_retrieval_sym.py    # retrieval fine-tuning entry point
-├── fashion_catereg_sym.py      # category recognition entry point
-│
-├── run_pretrain_sym.sh         # launch pre-training (smoke / tier2 / full)
-├── run_retrieval_sym.sh        # launch retrieval fine-tuning
-├── run_caterg_sym.sh           # launch category recognition
-│
-├── prepare_dataset.py
-├── check_dataset_overlap.py
-└── utils.py
-```
-
----
-
 ## Requirements
 
 ```bash
@@ -110,9 +74,9 @@ Core: PyTorch ≥ 1.9, `transformers`, `ruamel.yaml`, `h5py`, `timm`.
 
 ## Pre-Trained Model
 
-Our dual-stream pre-trained checkpoint will be available for download at:
+Our dual-stream pre-trained checkpoint is available for download at:
 
-> **[Download link — coming soon]**
+> **[Download checkpoint](https://drive.google.com/file/d/1cJsk0Ql66KMhcciyMull0othdxRljjEz/view?usp=drive_link)**
 
 Place the checkpoint at `output/full_run/epoch029/checkpoint.pth` before running fine-tuning scripts.
 
