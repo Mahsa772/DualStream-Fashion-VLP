@@ -99,6 +99,9 @@ bash run_pretrain_sym.sh full
 # Resume from checkpoint
 bash run_pretrain_sym.sh full output/full_run/epoch029/checkpoint.pth
 ```
+This is the diagram of the pretrain architecture:
+
+![Pretrain Diagram](images/pretrain_diagram.jpg)
 
 ### 2. Retrieval Fine-Tuning
 
@@ -108,6 +111,11 @@ bash run_retrieval_sym.sh
 
 Text feature at inference: **SD = (S + D) / 2** — combines both streams for richer image–text matching.
 
+
+This is the diagram of the Retrieval architecture:
+
+![Pretrain Diagram](images/retrieval_diagram.jpg)
+
 ### 3. Category Recognition Fine-Tuning
 
 ```bash
@@ -115,6 +123,10 @@ bash run_caterg_sym.sh
 ```
 
 Classification input: **[S ; D]** concatenated (1536-dim) → separate heads for CR and SCR.
+
+This is the diagram of the Category Recognition architecture:
+
+![Pretrain Diagram](images/category_diagram.jpg)
 
 ---
 
